@@ -1,3 +1,19 @@
+<?php 
+require 'action.php';
+
+if(isset($_POST['auth-submit'])){
+    if(register()){
+        exit;
+    }
+}
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +32,7 @@
         
         ?>
 
-             <form action="insert_user.php" method="post">
+             <form action="" method="post">
         <ul>
                 <li>
                  <label for="fname">Full Name</label>
