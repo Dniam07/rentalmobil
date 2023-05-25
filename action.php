@@ -1,5 +1,6 @@
 <?php 
 require "koneksi.php";
+session_start();
 
 
 
@@ -46,42 +47,42 @@ function register(){
     
     };
 }
- //aksi untuk login
- 
 
- function cekLogin(){
+//function unutk query
+function getDataUsers($email){
     global $conn;
-
-    if (isset($_POST['auth-login'])){
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-
-        $sql = "SELECT * FROM users WHERE email = '$email'";
-        $result = mysqli_query($conn, $sql);
-        if ($result->num_rows > 0){    
-            $row = mysqli_fetch_assoc($result);
-            
-            if(password_verify($password, $row['password']));
-
-                $_SESSION['email'] = $row['email'];
-                $_SESSION['role'] = $row['role'];
-                
-                $msg = "Login Berhasil";
-                header("Location: berhasil_login.php?message=" . $msg);
-                exit;
-            } else {
-                $msg = "wrong email or password";
-                header("Location: login.php?message=" . $msg);
-                exit;
-            }
-        } else {
-            $msg = "Login Gagal";
-            header("Location: login_gagal.php");
-        }
+    $fullname = $_POST['fullname'];
+    $query = "SELECT * FROM users WHERE fullname = '$fullname' and email = '$email'";
+    $result = mysqli_query($conn, $query);
+    return $result;
 }
 
+// function cek login
+function cekLogin(){
+    if(isset($_POST['auth-login'])){
+        $fullname = $_POST['fullname'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
     
+        $result = getDataUsers($email);
+        if($result->num_rows > 0){
+            $row = mysqli_fetch_assoc($result);
+    
+            if(password_verify($password, $row['password'])){
+                $_SESSION['email'] = $email;
+                $_SESSION['login'] = true;
+                header('Location: home.php');
+    
+            } else {
+                header("Location: login.php?message=gabisa masuk woi");
+            }
+        }
+    }
+
+}
+
+
+
 
 
 

@@ -1,0 +1,69 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* NGATUR NAVBAR */
+.header{
+    width: 100%;
+    height: 80px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5em;
+    border: 1px solid tomato;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.h1-header {
+    border: 1px solid red;
+}
+.span-menu{
+    color: rgba(234, 234, 27, 0.736);
+    font-weight: 800;
+}
+.judul-header{
+    font-weight: 800;
+    color: cornflowerblue;
+}
+
+.header_container {
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    width: 80%;
+    gap: 4em;
+}
+
+.nav_container {
+    /* border: 2px solid tomato; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50em;
+
+}
+
+.nav_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid purple; */
+    list-style: none;
+    gap: 2em;
+    width: 80%;
+
+}
+
+.nav_wrapper li a
+{
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    color: #24242a;
+}
+

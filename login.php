@@ -1,11 +1,11 @@
 <?php
 require 'action.php';
 
-if(isset($_POST['auth-login'])){
+ if(isset($_POST['auth-login'])){
     if(cekLogin()){
         exit;
-    }
-}
+     }
+ }
 ?>
 
 
@@ -20,12 +20,18 @@ if(isset($_POST['auth-login'])){
 </head>
 <body>
     <div class="form-login">
-        <form action="" method="post">
+        <form action="" method="POST">
             <h2>Login Form</h2>
             <p>Please fill in this form to login</p>
             <hr>
             <ul>
-                <li> <label for="email">Email:</label>
+
+                <li>
+                     <label for="fullname">ENTER FULLNAME:</label>
+                     <input type="text" id="fullname" name="fullname" placeholder="Please input your fullname" autocomplete="off">
+                </li>
+                <li>
+                     <label for="email">Email:</label>
                      <input type="email" id="email" name="email" placeholder="Email" autocomplete="off">
                 </li>
                 <li>
@@ -34,7 +40,7 @@ if(isset($_POST['auth-login'])){
                 </li>
                 <li>
                       <hr>
-                      <input type="submit" name="auth-login" value="Login" >
+                      <button type="submit" name="auth-login">Login</button>
                 </li>
                 <li>
                     <a href="#">Forgot your password?</a>

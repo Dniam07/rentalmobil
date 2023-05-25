@@ -1,10 +1,6 @@
 <?php
-
-    require 'koneksi.php';
-
-    $sql = "SELECT * FROM tb_mobil";
-    $result = mysqli_query($conn, $sql);
-
+require 'functionUser.php';
+    $result = tampilTransaksi();
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Mobil</title>
+    <title>Data Transaksi</title>
     <link rel="stylesheet" href="tabel.css">
 </head>
 <body>
@@ -31,33 +27,40 @@
             </div>
             
     <center>
-        <h1>TABEL MOBIL</h1>
+        <h1>TABEL TRANSAKSI</h1>
     </center>
-        <center>
+    
+    <center>
             <table>
         <tr>
-        <th>Id Mobil</th>
-        <th>Jenis Mobil</th>
+            <th>Id Transaksi</th>
+        <th>Nama Penyewa</th>
         <th>Nama Mobil</th>
-        <th>Harga Harian</th>        
+        <th>Jumlah Hari</th>
+        <th>Harga Harian</th>
+        <th>Harga Total</th>
         </tr>
   
        <?php while ($row=mysqli_fetch_assoc($result)) : ?>
         <tr>
-             <td><?php echo $row['id_mobil']?></td>
-             <td><?php echo $row['jenis_mobil']?></td>
-             <td><?php echo $row['nama_mobil']?></td>
-             <td><?php echo $row['harga_harian']?></td>
+            <td><?php echo $row['id_transaksi']?></td>
+            <td><?php echo $row['nama_penyewa']?></td>
+            <td><?php echo $row['nama_mobil']?></td>
+            <td><?php echo $row['jumlah_hari']?></td>
+            <td><?php echo $row['harga_harian']?></td>
+            <td><?php echo $row['harga_total']?></td>
+        
         </tr>
-        <?php endwhile ?>
+        <?php endwhile; ?>
     </table>
-    <div class="kembali">
+      <div class="kembali">
         <p><a href="home.php">KEMBALI</a></p>
     </div>
+    </center>
+
     
-    
-        </center>
 </body>
 </html>
+
 
 
